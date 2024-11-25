@@ -21,38 +21,38 @@ namespace DDSS_AltStyle.Utils
             // Create Preferences Entries
             _prefs_MenuLogo = CreatePref("MenuLogo",
                 "Menu Logo",
-                "Sets the  of the Game Logo on the Main Menu",
+                "Sets the Style of the Game Logo on the Main Menu",
                 AlternateStyleHandler.eLogo.Transparent);
 
             _prefs_MenuBackground = CreatePref("MenuBackground",
                 "Menu Background",
-                "Sets the  of the Game Background on the Main Menu",
+                "Sets the Style of the Game Background on the Main Menu",
                 AlternateStyleHandler.eBackground.Gradient);
 
             _prefs_LobbyBackground = CreatePref("LobbyBackground",
                 "Lobby Background",
-                "Sets the  of the Game Background for the Lobby menu",
+                "Sets the Style of the Game Background for the Lobby menu",
                 AlternateStyleHandler.eBackground.Flat);
 
             _prefs_CustomizeBackground = CreatePref("CustomizeBackground",
                 "Customize Background",
-                "Sets the  of the Game Background for the Customize menu",
+                "Sets the Style of the Game Background for the Customize menu",
                 AlternateStyleHandler.eBackground.Gradient);
 
             _prefs_GameSettingsBackground = CreatePref("GameSettingsBackground",
                 "Game Settings Background ",
-                "Sets the  of the Game Background for the Game Settings menu",
+                "Sets the Style of the Game Background for the Game Settings menu",
                 AlternateStyleHandler.eBackground.Gradient);
 
             _prefs_MelonSettingsBackground = CreatePref("MelonSettingsBackground",
                 "Melon Settings Background ",
-                "Sets the  of the Game Background for the Mod Settings menu",
+                "Sets the Style of the Game Background for the Mod Settings menu",
                 AlternateStyleHandler.eBackground.Gradient,
                 !MelonMain._hasMelonSettings);
 
             _prefs_LobbyGuardSettingsBackground = CreatePref("LobbyGuardSettingsBackground",
                 "LobbyGuard Settings Background ",
-                "Sets the  of the Game Background for the LobbyGuard Settings menu",
+                "Sets the Style of the Game Background for the LobbyGuard Settings menu",
                 AlternateStyleHandler.eBackground.Gradient,
                 !MelonMain._hasLobbyGuard);
         }
