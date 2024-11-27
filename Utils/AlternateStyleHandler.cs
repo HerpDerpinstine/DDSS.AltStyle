@@ -60,7 +60,7 @@ namespace DDSS_AltStyle.Utils
                     }
                     break;
 
-                case "LobbyGuard":
+                case "LobbyGuardSettings":
                     if (MelonMain._hasLobbyGuard)
                     {
                         _lastTab = tab;
