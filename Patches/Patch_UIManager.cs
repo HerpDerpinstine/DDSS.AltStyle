@@ -28,7 +28,7 @@ namespace DDSS_AltStyle.Patches
         private static void CloseTab_string_Postfix()
         {
             // Apply Style
-            AlternateStyleHandler.Apply();
+            AlternateStyleHandler.Apply("Menu");
         }
 
         [HarmonyPostfix]
@@ -36,7 +36,7 @@ namespace DDSS_AltStyle.Patches
         private static void CloseTab_int_Postfix()
         {
             // Apply Style
-            AlternateStyleHandler.Apply();
+            AlternateStyleHandler.Apply("Menu");
         }
 
         [HarmonyPostfix]
@@ -44,7 +44,7 @@ namespace DDSS_AltStyle.Patches
         private static void CloseTab_UiTab_Postfix()
         {
             // Apply Style
-            AlternateStyleHandler.Apply();
+            AlternateStyleHandler.Apply("Menu");
         }
 
         [HarmonyPostfix]
@@ -52,7 +52,7 @@ namespace DDSS_AltStyle.Patches
         private static void CloseAllTabs_Postfix()
         {
             // Apply Style
-            AlternateStyleHandler.Apply();
+            AlternateStyleHandler.Apply("Menu");
         }
     }
 }
