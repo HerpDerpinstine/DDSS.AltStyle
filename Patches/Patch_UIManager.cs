@@ -24,8 +24,24 @@ namespace DDSS_AltStyle.Patches
         }
 
         [HarmonyPostfix]
-        [HarmonyPatch(typeof(UIManager), nameof(UIManager.CloseTab))]
-        private static void CloseTab_Postfix()
+        [HarmonyPatch(typeof(UIManager), nameof(UIManager.CloseTab), typeof(string))]
+        private static void CloseTab_string_Postfix()
+        {
+            // Apply Style
+            AlternateStyleHandler.Apply();
+        }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(UIManager), nameof(UIManager.CloseTab), typeof(int))]
+        private static void CloseTab_int_Postfix()
+        {
+            // Apply Style
+            AlternateStyleHandler.Apply();
+        }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(UIManager), nameof(UIManager.CloseTab), typeof(UiTab))]
+        private static void CloseTab_UiTab_Postfix()
         {
             // Apply Style
             AlternateStyleHandler.Apply();
