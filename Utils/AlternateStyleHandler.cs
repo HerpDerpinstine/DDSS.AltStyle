@@ -32,23 +32,22 @@ namespace DDSS_AltStyle.Utils
                 case "Menu":
                     _lastTab = tab;
                     Apply_Menu_Logo();
-                    Apply_Menu_Background(ConfigHandler._prefs_MenuBackground);
+                    Apply_Background(false, ConfigHandler._prefs_MenuBackground.Value);
                     break;
 
                 case "Lobby":
                     _lastTab = tab;
-                    Apply_Lobby_Background();
+                    Apply_Background(true, ConfigHandler._prefs_LobbyBackground.Value);
                     break;
 
                 case "Customize":
                     _lastTab = tab;
-                    Apply_Menu_Background(ConfigHandler._prefs_CustomizeBackground);
-                    FixCustomizePlayerRender();
+                    Apply_Background(false, eBackground.Gradient);
                     break;
 
                 case "Settings":
                     _lastTab = tab;
-                    Apply_Menu_Background(ConfigHandler._prefs_GameSettingsBackground);
+                    Apply_Background(false, ConfigHandler._prefs_GameSettingsBackground.Value);
                     break;
 
                 case "MelonSettings":
@@ -56,7 +55,7 @@ namespace DDSS_AltStyle.Utils
                     if (MelonMain._hasMelonSettings)
                     {
                         _lastTab = tab;
-                        Apply_Menu_Background(ConfigHandler._prefs_MelonSettingsBackground);
+                        Apply_Background(false, ConfigHandler._prefs_MelonSettingsBackground.Value);
                     }
                     break;
 
@@ -64,7 +63,7 @@ namespace DDSS_AltStyle.Utils
                     if (MelonMain._hasLobbyGuard)
                     {
                         _lastTab = tab;
-                        Apply_Menu_Background(ConfigHandler._prefs_LobbyGuardSettingsBackground);
+                        Apply_Background(false, ConfigHandler._prefs_LobbyGuardSettingsBackground.Value);
                     }
                     break;
 
@@ -74,34 +73,13 @@ namespace DDSS_AltStyle.Utils
             }
         }
 
-        private static void FixCustomizePlayerRender()
+        private static void Apply_Background(bool isLobby, eBackground type)
         {
-            PlayerCustomizer customizer = UnityEngine.Object.FindObjectOfType<PlayerCustomizer>();
-            if ((customizer == null)
-                || customizer.WasCollected)
+            Transform backgroundFlat = UIManager.instance.transform.Find($"Background{(isLobby ? " (1)" : string.Empty)}");
+            if (backgroundFlat == null)
                 return;
 
-            customizer.transform.parent.SetAsLastSibling();
-        }
-
-        private static void Apply_Lobby_Background()
-        {
-            Transform backgroundFlatLobby = UIManager.instance.transform.Find("Background (1)");
-            if (backgroundFlatLobby == null)
-                return;
-            
-            eBackground lobbyBackgroundStyle = ConfigHandler._prefs_LobbyBackground.Value;
-            backgroundFlatLobby.gameObject.SetActive(lobbyBackgroundStyle == eBackground.Flat);
-        }
-
-        private static void Apply_Menu_Background(MelonPreferences_Entry<eBackground> pref)
-        {
-            Transform backgroundFlatMenu = UIManager.instance.transform.Find("Background");
-            if (backgroundFlatMenu == null)
-                return;
-
-            eBackground menuBackgroundStyle = pref.Value;
-            backgroundFlatMenu.gameObject.SetActive(menuBackgroundStyle == eBackground.Flat);
+            backgroundFlat.gameObject.SetActive(type == eBackground.Flat);
         }
 
         private static void Apply_Menu_Logo()
